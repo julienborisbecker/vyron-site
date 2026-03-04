@@ -3,109 +3,177 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vyron | Ton coach de progression</title>
+    <title>Vyron | L'app qui structure ta progression</title>
     <meta
       name="description"
-      content="Vyron transforme tes séances, activités et mini-exos en progression claire et motivante."
+      content="Vyron centralise tes séances, mini-exos et activités pour te faire progresser avec une lecture claire et motivante."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="bg-orb orb-a" aria-hidden="true"></div>
-    <div class="bg-orb orb-b" aria-hidden="true"></div>
-    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="ambient ambient-left" aria-hidden="true"></div>
+    <div class="ambient ambient-right" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-    <header class="site-header container">
-      <a class="brand" href="index.html" aria-label="Vyron accueil">
-        <span class="brand-dot"></span>
+    <header class="topbar container reveal-0">
+      <a href="index.html" class="logo" aria-label="Accueil Vyron">
+        <span class="logo-mark">V</span>
         <span>VYRON</span>
       </a>
-      <a class="header-link" href="privacy.html">Confidentialité</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#results">Résultats</a>
+        <a href="#plans">Offres</a>
+      </nav>
+      <a class="btn btn-small" href="privacy.html">Confidentialité</a>
     </header>
 
     <main class="container">
-      <section class="hero reveal">
-        <p class="eyebrow">APP FITNESS</p>
-        <h1>Le suivi sportif qui te donne envie de continuer.</h1>
-        <p class="lead">
-          Enregistre tes séances, activités et mini-exos. Vyron te montre une progression
-          lisible, des feedbacks motivants, et un score qui reflète vraiment ton effort.
-        </p>
-        <div class="actions-row">
+      <section class="hero reveal-1">
+        <div class="hero-copy">
+          <p class="tag">FITNESS TRACKING PLATFORM</p>
+          <h1>Prends le contrôle de ta progression, sans te perdre dans les données.</h1>
+          <p class="subtitle">
+            Vyron transforme chaque effort en progression lisible: séances, mini-exos, activités,
+            score global, feedback concret.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://apps.apple.com/app/idXXXXXXXXXX"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Télécharger sur l'App Store</a
+            >
+            <a class="btn btn-outline" href="#features">Voir les fonctionnalités</a>
+          </div>
+          <div class="mini-proof">
+            <span>iPhone</span>
+            <span>Suivi quotidien</span>
+            <span>Score motivant</span>
+          </div>
+        </div>
+
+        <div class="hero-ui" aria-hidden="true">
+          <article class="widget widget-main">
+            <div class="widget-head">
+              <p>Score activité</p>
+              <strong>742</strong>
+            </div>
+            <div class="sparkline">
+              <span style="--h: 36%"></span>
+              <span style="--h: 55%"></span>
+              <span style="--h: 41%"></span>
+              <span style="--h: 68%"></span>
+              <span style="--h: 74%"></span>
+              <span style="--h: 81%"></span>
+              <span style="--h: 92%"></span>
+            </div>
+            <p class="widget-note">+22% sur les 30 derniers jours</p>
+          </article>
+          <article class="widget widget-split">
+            <h3>Répartition</h3>
+            <ul>
+              <li><span>Séances</span><strong>54%</strong></li>
+              <li><span>Activités</span><strong>29%</strong></li>
+              <li><span>Mini-exos</span><strong>17%</strong></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="kpi-strip reveal-2">
+        <div><strong>+3.4x</strong><span>plus de régularité visible</span></div>
+        <div><strong>1 écran</strong><span>pour comprendre ta semaine</span></div>
+        <div><strong>0 friction</strong><span>tu enregistres, Vyron synthétise</span></div>
+      </section>
+
+      <section id="features" class="features reveal-3">
+        <article class="feature">
+          <h2>Suivi unifié</h2>
+          <p>Tout est au même endroit: séances, activités, mini-exos, sans changer de logique.</p>
+        </article>
+        <article class="feature">
+          <h2>Synthèse intelligente</h2>
+          <p>Lecture claire de ta période: progression, équilibre, effort utile, axes prioritaires.</p>
+        </article>
+        <article class="feature">
+          <h2>Feedback motivant</h2>
+          <p>Des retours adaptés à ton niveau actuel, même au tout début de ton parcours.</p>
+        </article>
+      </section>
+
+      <section class="workflow reveal-4">
+        <h2>Un flow simple, orienté résultats</h2>
+        <div class="steps">
+          <article>
+            <p class="step-index">01</p>
+            <h3>Fais ton effort</h3>
+            <p>Une séance complète, une activité, ou 2 minutes de mini-exo.</p>
+          </article>
+          <article>
+            <p class="step-index">02</p>
+            <h3>Vyron calcule</h3>
+            <p>XP, score, volume, et tendances sont consolidés automatiquement.</p>
+          </article>
+          <article>
+            <p class="step-index">03</p>
+            <h3>Tu ajustes</h3>
+            <p>Tu sais quoi renforcer et comment rester constant semaine après semaine.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="plans" class="plans reveal-5">
+        <article class="plan plan-main">
+          <p class="plan-tag">RECOMMANDÉ</p>
+          <h3>Vyron App</h3>
+          <p class="plan-price">Téléchargement gratuit</p>
+          <ul>
+            <li>Suivi complet des entraînements</li>
+            <li>Synthèse et progression</li>
+            <li>Lecture & feedback personnalisés</li>
+          </ul>
           <a
             class="btn btn-primary"
             href="https://apps.apple.com/app/idXXXXXXXXXX"
             target="_blank"
             rel="noopener noreferrer"
-            >Télécharger sur l'App Store</a
+            >Installer maintenant</a
           >
-          <a class="btn btn-ghost" href="privacy.html">Politique de confidentialité</a>
-        </div>
-      </section>
-
-      <section class="showcase reveal-delay-1">
-        <article class="phone-card">
-          <div class="phone-top">
-            <span>Progression hebdo</span>
-            <strong>+18%</strong>
-          </div>
-          <div class="bars" aria-hidden="true">
-            <span style="--h: 40%"></span>
-            <span style="--h: 65%"></span>
-            <span style="--h: 52%"></span>
-            <span style="--h: 78%"></span>
-            <span style="--h: 88%"></span>
-            <span style="--h: 70%"></span>
-            <span style="--h: 92%"></span>
-          </div>
-          <div class="phone-stats">
-            <p><strong>4</strong> séances</p>
-            <p><strong>2</strong> mini-exos</p>
-            <p><strong>1h42</strong> actif</p>
-          </div>
         </article>
-
-        <article class="feature-card reveal-delay-2">
-          <h2>Pourquoi Vyron</h2>
-          <ul>
-            <li>
-              <strong>Vision claire :</strong> une synthèse qui te montre ce qui avance vraiment.
-            </li>
-            <li>
-              <strong>Motivation durable :</strong> un feedback utile, adapté même quand tu démarres.
-            </li>
-            <li>
-              <strong>Ultra simple :</strong> ouvre l'app, fais ton effort, ta progression se construit.
-            </li>
-          </ul>
+        <article class="plan">
+          <h3>Informations légales</h3>
+          <p class="plan-text">
+            Consulte la politique de confidentialité pour comprendre précisément le traitement des
+            données.
+          </p>
+          <a class="btn btn-outline" href="privacy.html">Voir la politique</a>
         </article>
       </section>
 
-      <section class="proof reveal-delay-3">
-        <div class="proof-item">
-          <p class="proof-value">3 formats</p>
-          <p class="proof-label">Séance · Activité · Mini-exo</p>
-        </div>
-        <div class="proof-item">
-          <p class="proof-value">1 score</p>
-          <p class="proof-label">Simple à suivre au quotidien</p>
-        </div>
-        <div class="proof-item">
-          <p class="proof-value">100%</p>
-          <p class="proof-label">Axé progression réelle</p>
-        </div>
+      <section class="final-cta reveal-6">
+        <h2>Tu veux progresser avec une vision claire?</h2>
+        <p>Commence aujourd'hui et construis une régularité qui tient dans le temps.</p>
+        <a
+          class="btn btn-primary"
+          href="https://apps.apple.com/app/idXXXXXXXXXX"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Ouvrir l'App Store</a
+        >
       </section>
     </main>
 
-    <footer class="site-footer container">
+    <footer class="footer container">
       <small>© <span id="year"></span> Vyron</small>
-      <small><a href="privacy.html">Confidentialité</a></small>
+      <small><a href="privacy.html">Politique de confidentialité</a></small>
     </footer>
 
     <script>
