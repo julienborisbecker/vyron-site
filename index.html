@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vyron</title>
+    <meta name="description" content="Vyron - Suivi sportif simple et motivant." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Vyron</h1>
+      <p class="lead">Ton suivi sportif simple, clair et motivant.</p>
+
+      <section class="card">
+        <h2>Ce que fait l'app</h2>
+        <ul>
+          <li>Suivi de tes séances, mini-exos et activités</li>
+          <li>Synthèse de progression et régularité</li>
+          <li>Feedback pour rester motivé</li>
+        </ul>
+      </section>
+
+      <div class="actions">
+        <a class="btn" href="https://apps.apple.com/app/idXXXXXXXXXX" target="_blank" rel="noopener noreferrer">
+          Télécharger sur l'App Store
+        </a>
+        <a class="link" href="privacy.html">Politique de confidentialité</a>
+      </div>
+
+      <footer>
+        <small>© <span id="year"></span> Vyron</small>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
