@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support - Vyron</title>
+    <meta name="description" content="Vyron support page." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="legal-page">
+    <main class="container legal-shell">
+      <header class="legal-toolbar">
+        <a class="legal-back" href="index.html">&larr; <span data-en="Back to home" data-fr="Retour a l'accueil">Back to home</span></a>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">FR</button>
+      </header>
+
+      <article class="card legal-block legal-en">
+        <h1>Support - Vyron</h1>
+        <p class="lead">Need help with your account, billing, or app usage?</p>
+
+        <h2>Contact</h2>
+        <p>
+          Email us at: <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+
+        <h2>Typical response time</h2>
+        <p>We usually respond within 24 to 48 hours.</p>
+
+        <h2>Useful links</h2>
+        <p><a href="privacy.html">Privacy Policy</a></p>
+        <p><a href="terms.html">Terms of Use</a></p>
+      </article>
+
+      <article class="card legal-block legal-fr" hidden>
+        <h1>Support - Vyron</h1>
+        <p class="lead">Besoin d'aide pour votre compte, vos abonnements ou l'utilisation de l'app ?</p>
+
+        <h2>Contact</h2>
+        <p>
+          Ecrivez-nous a : <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+
+        <h2>Delai de reponse</h2>
+        <p>Nous repondons en general sous 24 a 48 heures.</p>
+
+        <h2>Liens utiles</h2>
+        <p><a href="privacy.html">Politique de confidentialite</a></p>
+        <p><a href="terms.html">Conditions generales d'utilisation</a></p>
+      </article>
+
+      <nav class="legal-links">
+        <a href="privacy.html" data-en="Read Privacy Policy" data-fr="Voir la confidentialite">Read Privacy Policy</a>
+        <a href="terms.html" data-en="Read Terms" data-fr="Voir les CGU">Read Terms</a>
+      </nav>
+    </main>
+
+    <script>
+      const langToggle = document.getElementById("langToggle");
+      const enBlock = document.querySelector(".legal-en");
+      const frBlock = document.querySelector(".legal-fr");
+      const i18nNodes = document.querySelectorAll("[data-en][data-fr]");
+
+      function applyLang(lang) {
+        const safeLang = lang === "fr" ? "fr" : "en";
+        document.documentElement.lang = safeLang;
+        if (enBlock) enBlock.hidden = safeLang !== "en";
+        if (frBlock) frBlock.hidden = safeLang !== "fr";
+        i18nNodes.forEach((node) => {
+          node.textContent = node.dataset[safeLang];
+        });
+        if (langToggle) {
+          langToggle.textContent = safeLang === "en" ? "FR" : "EN";
+          langToggle.setAttribute(
+            "aria-label",
+            safeLang === "en" ? "Switch to French" : "Passer en anglais"
+          );
+        }
+      }
+
+      const initialLang = localStorage.getItem("vyron-lang") || "en";
+      applyLang(initialLang);
+
+      if (langToggle) {
+        langToggle.addEventListener("click", () => {
+          const nextLang = document.documentElement.lang === "en" ? "fr" : "en";
+          localStorage.setItem("vyron-lang", nextLang);
+          applyLang(nextLang);
+        });
+      }
+    </script>
+  </body>
+</html>
