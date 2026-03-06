@@ -209,37 +209,30 @@ h1 {
   font-size: 0.88rem;
 }
 
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 22, 46, 0.45);
-  backdrop-filter: blur(3px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 1000;
+.coming-soon-inline {
+  margin-top: 12px;
+  padding: 11px 13px;
+  border: 1px solid rgba(58, 113, 209, 0.25);
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(233, 243, 255, 0.96),
+    rgba(245, 250, 255, 0.94)
+  );
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
-.modal-card {
-  width: min(520px, 100%);
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(17, 40, 80, 0.28);
-  padding: 22px;
+.coming-soon-inline.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.modal-card h2 {
-  margin: 0 0 8px;
-  font-family: "Sora", "Avenir Next", sans-serif;
-  font-size: 1.4rem;
-  color: #0c1f43;
-}
-
-.modal-card p {
-  margin: 0 0 16px;
-  color: #345486;
+.coming-soon-inline p {
+  margin: 0;
+  color: #2f4f84;
+  font-size: 0.93rem;
 }
 
 .card {

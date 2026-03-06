@@ -79,6 +79,15 @@
               >Support</a
             >
           </div>
+
+          <div id="comingSoonInline" class="coming-soon-inline" hidden>
+            <p
+              data-en="App Store release is coming soon. We will publish the download link as soon as Apple approves version 1."
+              data-fr="La sortie App Store arrive bientôt. Le lien de téléchargement sera publié dès que la version 1 sera approuvée par Apple."
+            >
+              App Store release is coming soon. We will publish the download link as soon as Apple approves version 1.
+            </p>
+          </div>
         </div>
 
         <figure class="app-shot">
@@ -100,27 +109,6 @@
       <small><a href="mailto:contact@vyron.fit">contact@vyron.fit</a></small>
     </footer>
 
-    <div id="comingSoonModal" class="modal-backdrop" hidden>
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="comingSoonTitle">
-        <h2
-          id="comingSoonTitle"
-          data-en="Coming soon"
-          data-fr="Bientôt disponible"
-        >
-          Coming soon
-        </h2>
-        <p
-          data-en="Vyron is currently under App Store review. The download link will be available as soon as version 1 is approved."
-          data-fr="Vyron est en cours de validation sur l'App Store. Le lien de téléchargement sera disponible dès que la version 1 sera approuvée."
-        >
-          Vyron is currently under App Store review. The download link will be available as soon as version 1 is approved.
-        </p>
-        <button id="closeModalBtn" class="btn btn-primary" type="button" data-en="Got it" data-fr="Compris">
-          Got it
-        </button>
-      </div>
-    </div>
-
     <script>
       const yearNode = document.getElementById("year");
       if (yearNode) yearNode.textContent = new Date().getFullYear();
@@ -129,20 +117,7 @@
       const i18nNodes = document.querySelectorAll("[data-en][data-fr]");
       const appPreview = document.getElementById("appPreview");
       const downloadBtn = document.getElementById("downloadBtn");
-      const comingSoonModal = document.getElementById("comingSoonModal");
-      const closeModalBtn = document.getElementById("closeModalBtn");
-
-      function openComingSoonModal() {
-        if (!comingSoonModal) return;
-        comingSoonModal.hidden = false;
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeComingSoonModal() {
-        if (!comingSoonModal) return;
-        comingSoonModal.hidden = true;
-        document.body.style.overflow = "";
-      }
+      const comingSoonInline = document.getElementById("comingSoonInline");
 
       function applyLang(lang) {
         const safeLang = lang === "fr" ? "fr" : "en";
@@ -177,22 +152,15 @@
       }
 
       if (downloadBtn) {
-        downloadBtn.addEventListener("click", openComingSoonModal);
-      }
-
-      if (closeModalBtn) {
-        closeModalBtn.addEventListener("click", closeComingSoonModal);
-      }
-
-      if (comingSoonModal) {
-        comingSoonModal.addEventListener("click", (event) => {
-          if (event.target === comingSoonModal) closeComingSoonModal();
+        downloadBtn.addEventListener("click", () => {
+          if (!comingSoonInline) return;
+          comingSoonInline.hidden = false;
+          comingSoonInline.classList.remove("is-visible");
+          requestAnimationFrame(() => {
+            comingSoonInline.classList.add("is-visible");
+          });
         });
       }
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeComingSoonModal();
-      });
     </script>
   </body>
 </html>
