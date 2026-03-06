@@ -1,183 +1,137 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vyron | L'app qui structure ta progression</title>
+    <title>Vyron | Clear progress, no data overload</title>
     <meta
       name="description"
-      content="Vyron centralise tes séances, mini-exos et activités pour te faire progresser avec une lecture claire et motivante."
+      content="Vyron helps you track sessions, activities, and mini-workouts with a simple and clear progress view."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="ambient ambient-left" aria-hidden="true"></div>
-    <div class="ambient ambient-right" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-left" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-right" aria-hidden="true"></div>
 
-    <header class="topbar container reveal-0">
-      <a href="index.html" class="logo" aria-label="Accueil Vyron">
-        <span class="logo-mark">V</span>
+    <header class="topbar container">
+      <a href="index.html" class="brand" aria-label="Vyron home">
+        <img src="assets/vyron-logo.webp" alt="Vyron logo" width="36" height="36" />
         <span>VYRON</span>
       </a>
-      <nav class="menu" aria-label="Navigation principale">
-        <a href="#features">Fonctionnalités</a>
-        <a href="#results">Résultats</a>
-        <a href="#plans">Offres</a>
-      </nav>
-      <a class="btn btn-small" href="privacy.html">Confidentialité</a>
+      <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">FR</button>
     </header>
 
     <main class="container">
-      <section class="hero reveal-1">
+      <section class="hero">
         <div class="hero-copy">
-          <p class="tag">FITNESS TRACKING PLATFORM</p>
-          <h1>Prends le contrôle de ta progression, sans te perdre dans les données.</h1>
-          <p class="subtitle">
-            Vyron transforme chaque effort en progression lisible: séances, mini-exos, activités,
-            score global, feedback concret.
+          <p class="eyebrow" data-en="Fitness tracking, simplified" data-fr="Suivi fitness, simplifié">
+            Fitness tracking, simplified
           </p>
-          <div class="hero-actions">
+          <h1
+            data-en="Take control of your progress, without getting lost in data."
+            data-fr="Prends le contrôle de ta progression, sans te perdre dans les données."
+          >
+            Take control of your progress, without getting lost in data.
+          </h1>
+          <p
+            class="lead"
+            data-en="Log your training and instantly get a clean weekly view to stay consistent."
+            data-fr="Enregistre tes entraînements et obtiens instantanément une vue hebdomadaire claire pour rester régulier."
+          >
+            Log your training and instantly get a clean weekly view to stay consistent.
+          </p>
+
+          <div class="actions">
             <a
               class="btn btn-primary"
               href="https://apps.apple.com/app/idXXXXXXXXXX"
               target="_blank"
               rel="noopener noreferrer"
-              >Télécharger sur l'App Store</a
+              data-en="Download on the App Store"
+              data-fr="Télécharger sur l'App Store"
+              >Download on the App Store</a
             >
-            <a class="btn btn-outline" href="#features">Voir les fonctionnalités</a>
+            <a
+              class="btn btn-ghost"
+              href="privacy.html"
+              data-en="Privacy Policy"
+              data-fr="Confidentialité"
+              >Privacy Policy</a
+            >
+            <a
+              class="btn btn-ghost"
+              href="terms.html"
+              data-en="Terms"
+              data-fr="CGU"
+              >Terms</a
+            >
           </div>
-          <div class="mini-proof">
-            <span>iPhone</span>
-            <span>Suivi quotidien</span>
-            <span>Score motivant</span>
-          </div>
         </div>
 
-        <div class="hero-ui" aria-hidden="true">
-          <article class="widget widget-main">
-            <div class="widget-head">
-              <p>Score activité</p>
-              <strong>742</strong>
-            </div>
-            <div class="sparkline">
-              <span style="--h: 36%"></span>
-              <span style="--h: 55%"></span>
-              <span style="--h: 41%"></span>
-              <span style="--h: 68%"></span>
-              <span style="--h: 74%"></span>
-              <span style="--h: 81%"></span>
-              <span style="--h: 92%"></span>
-            </div>
-            <p class="widget-note">+22% sur les 30 derniers jours</p>
-          </article>
-          <article class="widget widget-split">
-            <h3>Répartition</h3>
-            <ul>
-              <li><span>Séances</span><strong>54%</strong></li>
-              <li><span>Activités</span><strong>29%</strong></li>
-              <li><span>Mini-exos</span><strong>17%</strong></li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="results" class="kpi-strip reveal-2">
-        <div><strong>+3.4x</strong><span>plus de régularité visible</span></div>
-        <div><strong>1 écran</strong><span>pour comprendre ta semaine</span></div>
-        <div><strong>0 friction</strong><span>tu enregistres, Vyron synthétise</span></div>
-      </section>
-
-      <section id="features" class="features reveal-3">
-        <article class="feature">
-          <h2>Suivi unifié</h2>
-          <p>Tout est au même endroit: séances, activités, mini-exos, sans changer de logique.</p>
-        </article>
-        <article class="feature">
-          <h2>Synthèse intelligente</h2>
-          <p>Lecture claire de ta période: progression, équilibre, effort utile, axes prioritaires.</p>
-        </article>
-        <article class="feature">
-          <h2>Feedback motivant</h2>
-          <p>Des retours adaptés à ton niveau actuel, même au tout début de ton parcours.</p>
-        </article>
-      </section>
-
-      <section class="workflow reveal-4">
-        <h2>Un flow simple, orienté résultats</h2>
-        <div class="steps">
-          <article>
-            <p class="step-index">01</p>
-            <h3>Fais ton effort</h3>
-            <p>Une séance complète, une activité, ou 2 minutes de mini-exo.</p>
-          </article>
-          <article>
-            <p class="step-index">02</p>
-            <h3>Vyron calcule</h3>
-            <p>XP, score, volume, et tendances sont consolidés automatiquement.</p>
-          </article>
-          <article>
-            <p class="step-index">03</p>
-            <h3>Tu ajustes</h3>
-            <p>Tu sais quoi renforcer et comment rester constant semaine après semaine.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="plans" class="plans reveal-5">
-        <article class="plan plan-main">
-          <p class="plan-tag">RECOMMANDÉ</p>
-          <h3>Vyron App</h3>
-          <p class="plan-price">Téléchargement gratuit</p>
-          <ul>
-            <li>Suivi complet des entraînements</li>
-            <li>Synthèse et progression</li>
-            <li>Lecture & feedback personnalisés</li>
-          </ul>
-          <a
-            class="btn btn-primary"
-            href="https://apps.apple.com/app/idXXXXXXXXXX"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Installer maintenant</a
-          >
-        </article>
-        <article class="plan">
-          <h3>Informations légales</h3>
-          <p class="plan-text">
-            Consulte la politique de confidentialité pour comprendre précisément le traitement des
-            données.
-          </p>
-          <a class="btn btn-outline" href="privacy.html">Voir la politique</a>
-        </article>
-      </section>
-
-      <section class="final-cta reveal-6">
-        <h2>Tu veux progresser avec une vision claire?</h2>
-        <p>Commence aujourd'hui et construis une régularité qui tient dans le temps.</p>
-        <a
-          class="btn btn-primary"
-          href="https://apps.apple.com/app/idXXXXXXXXXX"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Ouvrir l'App Store</a
-        >
+        <figure class="app-shot">
+          <img
+            id="appPreview"
+            src="assets/vyron-app-preview.webp"
+            alt="Vyron app preview"
+            width="720"
+            height="1561"
+            loading="lazy"
+          />
+        </figure>
       </section>
     </main>
 
     <footer class="footer container">
       <small>© <span id="year"></span> Vyron</small>
-      <small><a href="privacy.html">Politique de confidentialité</a></small>
+      <small><a href="mailto:contact@vyron.fit">contact@vyron.fit</a></small>
     </footer>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      const yearNode = document.getElementById("year");
+      if (yearNode) yearNode.textContent = new Date().getFullYear();
+
+      const langToggle = document.getElementById("langToggle");
+      const i18nNodes = document.querySelectorAll("[data-en][data-fr]");
+      const appPreview = document.getElementById("appPreview");
+
+      function applyLang(lang) {
+        const safeLang = lang === "fr" ? "fr" : "en";
+        document.documentElement.lang = safeLang;
+        i18nNodes.forEach((node) => {
+          node.textContent = node.dataset[safeLang];
+        });
+        if (langToggle) {
+          langToggle.textContent = safeLang === "en" ? "FR" : "EN";
+          langToggle.setAttribute(
+            "aria-label",
+            safeLang === "en" ? "Switch to French" : "Passer en anglais"
+          );
+        }
+        if (appPreview) {
+          appPreview.src =
+            safeLang === "fr"
+              ? "assets/vyron-app-preview-fr.webp"
+              : "assets/vyron-app-preview.webp";
+        }
+      }
+
+      const initialLang = localStorage.getItem("vyron-lang") || "en";
+      applyLang(initialLang);
+
+      if (langToggle) {
+        langToggle.addEventListener("click", () => {
+          const nextLang = document.documentElement.lang === "en" ? "fr" : "en";
+          localStorage.setItem("vyron-lang", nextLang);
+          applyLang(nextLang);
+        });
+      }
     </script>
   </body>
 </html>

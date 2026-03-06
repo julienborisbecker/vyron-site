@@ -1,37 +1,145 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Politique de confidentialité - Vyron</title>
-    <meta name="description" content="Politique de confidentialité de Vyron." />
+    <title>Privacy Policy - Vyron</title>
+    <meta name="description" content="Vyron privacy policy." />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <main class="container">
-      <h1>Politique de confidentialité</h1>
-      <p class="lead">Dernière mise à jour : 4 mars 2026</p>
+  <body class="legal-page">
+    <main class="container legal-shell">
+      <header class="legal-toolbar">
+        <a class="legal-back" href="index.html">&larr; <span data-en="Back to home" data-fr="Retour à l'accueil">Back to home</span></a>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">FR</button>
+      </header>
 
-      <section class="card">
-        <h2>Données collectées</h2>
-        <p>Vyron peut collecter les informations nécessaires au fonctionnement de l'app (compte, données d'entraînement, paramètres).</p>
+      <article class="card legal-block legal-en">
+        <h1>Privacy Policy - Vyron</h1>
+        <p class="lead">Last updated: March 7, 2026</p>
 
-        <h2>Utilisation des données</h2>
-        <p>Les données sont utilisées pour fournir les fonctionnalités de suivi, de synthèse et d'amélioration de l'expérience utilisateur.</p>
+        <h2>1. Data collected</h2>
+        <p>
+          Vyron may collect usage data required for the app to work properly
+          (sessions, progress, and preferences).
+        </p>
+        <p>No sensitive personal data is sold to third parties.</p>
 
-        <h2>Partage</h2>
-        <p>Les données ne sont pas vendues. Elles peuvent être traitées par des services techniques nécessaires à l'hébergement et à l'analyse.</p>
+        <h2>2. Payment data</h2>
+        <p>
+          Payments are handled exclusively by Apple via the App Store.
+          Vyron does not have access to your banking information.
+        </p>
 
-        <h2>Suppression du compte</h2>
-        <p>Tu peux demander la suppression de tes données depuis l'application ou en contactant le support.</p>
+        <h2>3. Third-party services</h2>
+        <p>
+          Vyron uses third-party services for subscription management (RevenueCat)
+          and app stability analytics.
+        </p>
 
-        <h2>Contact</h2>
-        <p>Pour toute question : <a href="mailto:support@vyron.app">support@vyron.app</a></p>
-      </section>
+        <h2>4. Security</h2>
+        <p>We apply reasonable measures to protect your data.</p>
 
-      <div class="actions">
-        <a class="link" href="index.html">← Retour à l'accueil</a>
-      </div>
+        <h2>5. Your rights</h2>
+        <p>
+          In accordance with applicable regulations, you may request access,
+          correction, or deletion of your personal data.
+        </p>
+        <p>
+          You can delete your account and related data directly from the Vyron app.
+          If needed, you can also contact us at:
+          <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+
+        <h2>6. Contact</h2>
+        <p>
+          For any privacy-related question:
+          <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+      </article>
+
+      <article class="card legal-block legal-fr" hidden>
+        <h1>Politique de confidentialite - Vyron</h1>
+        <p class="lead">Derniere mise a jour : 7 mars 2026</p>
+
+        <h2>1. Donnees collectees</h2>
+        <p>
+          Vyron peut collecter des donnees liees a l'utilisation de l'application
+          (seances, progression, preferences).
+        </p>
+        <p>Aucune donnee sensible n'est vendue a des tiers.</p>
+
+        <h2>2. Donnees de paiement</h2>
+        <p>
+          Les paiements sont geres exclusivement par Apple via l'App Store.
+          Vyron n'a jamais acces a vos informations bancaires.
+        </p>
+
+        <h2>3. Services tiers</h2>
+        <p>
+          Vyron utilise des services tiers pour la gestion des abonnements
+          (RevenueCat) et l'analyse de stabilite de l'application.
+        </p>
+
+        <h2>4. Securite</h2>
+        <p>Nous mettons en oeuvre des mesures raisonnables pour proteger vos donnees.</p>
+
+        <h2>5. Vos droits</h2>
+        <p>
+          Conformement a la reglementation en vigueur, vous disposez d'un droit
+          d'acces, de rectification et de suppression de vos donnees personnelles.
+        </p>
+        <p>
+          Vous pouvez supprimer votre compte et vos donnees directement depuis
+          l'application Vyron. En cas de difficulte, contactez-nous a :
+          <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+
+        <h2>6. Contact</h2>
+        <p>
+          Pour toute question relative a la confidentialite :
+          <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+      </article>
+
+      <nav class="legal-links">
+        <a href="terms.html" data-en="Read Terms" data-fr="Voir les CGU">Read Terms</a>
+      </nav>
     </main>
+
+    <script>
+      const langToggle = document.getElementById("langToggle");
+      const enBlock = document.querySelector(".legal-en");
+      const frBlock = document.querySelector(".legal-fr");
+      const i18nNodes = document.querySelectorAll("[data-en][data-fr]");
+
+      function applyLang(lang) {
+        const safeLang = lang === "fr" ? "fr" : "en";
+        document.documentElement.lang = safeLang;
+        if (enBlock) enBlock.hidden = safeLang !== "en";
+        if (frBlock) frBlock.hidden = safeLang !== "fr";
+        i18nNodes.forEach((node) => {
+          node.textContent = node.dataset[safeLang];
+        });
+        if (langToggle) {
+          langToggle.textContent = safeLang === "en" ? "FR" : "EN";
+          langToggle.setAttribute(
+            "aria-label",
+            safeLang === "en" ? "Switch to French" : "Passer en anglais"
+          );
+        }
+      }
+
+      const initialLang = localStorage.getItem("vyron-lang") || "en";
+      applyLang(initialLang);
+
+      if (langToggle) {
+        langToggle.addEventListener("click", () => {
+          const nextLang = document.documentElement.lang === "en" ? "fr" : "en";
+          localStorage.setItem("vyron-lang", nextLang);
+          applyLang(nextLang);
+        });
+      }
+    </script>
   </body>
 </html>

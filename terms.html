@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Use - Vyron</title>
+    <meta name="description" content="Vyron terms of use." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="legal-page">
+    <main class="container legal-shell">
+      <header class="legal-toolbar">
+        <a class="legal-back" href="index.html">&larr; <span data-en="Back to home" data-fr="Retour a l'accueil">Back to home</span></a>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">FR</button>
+      </header>
+
+      <article class="card legal-block legal-en">
+        <h1>Terms of Use - Vyron</h1>
+        <p class="lead">Last updated: March 7, 2026</p>
+
+        <p>
+          Welcome to Vyron. Vyron is a fitness app designed to track sessions,
+          activities, and personalized exercises.
+        </p>
+
+        <h2>1. Acceptance of terms</h2>
+        <p>
+          By using the Vyron app, you fully and unreservedly accept these Terms of Use.
+        </p>
+
+        <h2>2. Access to the service</h2>
+        <p>
+          The app is available for free with limited features.
+          A paid subscription unlocks additional features.
+        </p>
+
+        <h2>3. Subscriptions</h2>
+        <p>
+          Subscriptions are offered monthly or yearly and are managed via the App Store.
+          Payments are charged to your Apple ID account.
+        </p>
+        <p>
+          The subscription renews automatically unless cancelled at least 24 hours
+          before the end of the current billing period.
+        </p>
+
+        <h2>4. Liability</h2>
+        <p>
+          Vyron content is provided for informational purposes only.
+          You use the app under your sole responsibility.
+        </p>
+        <p>
+          Before any physical activity, consult a healthcare professional.
+        </p>
+
+        <h2>5. Termination</h2>
+        <p>
+          You can stop using the app at any time.
+          Subscription cancellation is handled in your App Store account settings.
+        </p>
+
+        <h2>6. Contact</h2>
+        <p>
+          For any question:
+          <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+      </article>
+
+      <article class="card legal-block legal-fr" hidden>
+        <h1>Conditions generales d'utilisation - Vyron</h1>
+        <p class="lead">Derniere mise a jour : 7 mars 2026</p>
+
+        <p>
+          Bienvenue sur Vyron. Vyron est une application de fitness permettant
+          de suivre des seances, des activites et des exercices personnalises.
+        </p>
+
+        <h2>1. Acceptation des conditions</h2>
+        <p>
+          En utilisant l'application Vyron, vous acceptez pleinement et sans reserve
+          les presentes Conditions Generales d'Utilisation.
+        </p>
+
+        <h2>2. Acces au service</h2>
+        <p>
+          L'application est accessible gratuitement avec des fonctionnalites limitees.
+          Un abonnement payant permet de debloquer des fonctionnalites supplementaires.
+        </p>
+
+        <h2>3. Abonnements</h2>
+        <p>
+          Les abonnements sont proposes sous forme mensuelle ou annuelle et sont
+          geres via l'App Store. Le paiement est debite via votre compte Apple ID.
+        </p>
+        <p>
+          L'abonnement se renouvelle automatiquement sauf annulation au moins
+          24 heures avant la fin de la periode en cours.
+        </p>
+
+        <h2>4. Responsabilite</h2>
+        <p>
+          Vyron fournit des contenus a titre informatif. L'utilisation de l'application
+          se fait sous votre seule responsabilite.
+        </p>
+        <p>
+          Avant toute activite physique, consultez un professionnel de sante.
+        </p>
+
+        <h2>5. Resiliation</h2>
+        <p>
+          Vous pouvez arreter d'utiliser l'application a tout moment.
+          La resiliation d'un abonnement se fait via les reglages de votre compte App Store.
+        </p>
+
+        <h2>6. Contact</h2>
+        <p>
+          Pour toute question :
+          <a href="mailto:contact@vyron.fit">contact@vyron.fit</a>
+        </p>
+      </article>
+
+      <nav class="legal-links">
+        <a href="privacy.html" data-en="Read Privacy Policy" data-fr="Voir la confidentialite">Read Privacy Policy</a>
+      </nav>
+    </main>
+
+    <script>
+      const langToggle = document.getElementById("langToggle");
+      const enBlock = document.querySelector(".legal-en");
+      const frBlock = document.querySelector(".legal-fr");
+      const i18nNodes = document.querySelectorAll("[data-en][data-fr]");
+
+      function applyLang(lang) {
+        const safeLang = lang === "fr" ? "fr" : "en";
+        document.documentElement.lang = safeLang;
+        if (enBlock) enBlock.hidden = safeLang !== "en";
+        if (frBlock) frBlock.hidden = safeLang !== "fr";
+        i18nNodes.forEach((node) => {
+          node.textContent = node.dataset[safeLang];
+        });
+        if (langToggle) {
+          langToggle.textContent = safeLang === "en" ? "FR" : "EN";
+          langToggle.setAttribute(
+            "aria-label",
+            safeLang === "en" ? "Switch to French" : "Passer en anglais"
+          );
+        }
+      }
+
+      const initialLang = localStorage.getItem("vyron-lang") || "en";
+      applyLang(initialLang);
+
+      if (langToggle) {
+        langToggle.addEventListener("click", () => {
+          const nextLang = document.documentElement.lang === "en" ? "fr" : "en";
+          localStorage.setItem("vyron-lang", nextLang);
+          applyLang(nextLang);
+        });
+      }
+    </script>
+  </body>
+</html>
