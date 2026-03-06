@@ -161,8 +161,10 @@ h1 {
   border-radius: var(--radius-sm);
   font-size: 0.92rem;
   font-weight: 700;
+  font-family: inherit;
   padding: 10px 16px;
   transition: transform 0.18s ease;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -205,6 +207,39 @@ h1 {
   padding: 14px 0 28px;
   color: #5b75a3;
   font-size: 0.88rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 22, 46, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-card {
+  width: min(520px, 100%);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(17, 40, 80, 0.28);
+  padding: 22px;
+}
+
+.modal-card h2 {
+  margin: 0 0 8px;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.4rem;
+  color: #0c1f43;
+}
+
+.modal-card p {
+  margin: 0 0 16px;
+  color: #345486;
 }
 
 .card {
