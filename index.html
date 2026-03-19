@@ -48,15 +48,41 @@
             Log your training and instantly get a clean weekly view to stay consistent.
           </p>
 
-          <div class="actions">
-            <button
-              id="downloadBtn"
-              class="btn btn-primary"
-              type="button"
-              data-en="Download on the App Store"
-              data-fr="Télécharger sur l'App Store"
-              >Download on the App Store</button
+          <div class="store-actions">
+            <a
+              class="store-badge"
+              href="https://apps.apple.com/fr/app/vyron/id6753627633"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download Vyron on the App Store"
             >
+              <img
+                id="badgeAppStore"
+                class="store-badge-image"
+                src="assets/badge-app-store-en.svg"
+                alt="Download on the App Store"
+                width="250"
+                height="74"
+              />
+            </a>
+            <a
+              class="store-badge"
+              href="https://play.google.com/store/apps/details?id=com.julienbecker.risefit"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get Vyron on Google Play"
+            >
+              <img
+                id="badgeGooglePlay"
+                class="store-badge-image"
+                src="assets/badge-google-play-en.svg"
+                alt="Get it on Google Play"
+                width="250"
+                height="74"
+              />
+            </a>
+          </div>
+          <div class="actions actions-secondary">
             <a
               class="btn btn-ghost"
               href="privacy.html"
@@ -78,15 +104,6 @@
               data-fr="Support"
               >Support</a
             >
-          </div>
-
-          <div id="comingSoonInline" class="coming-soon-inline" hidden>
-            <p
-              data-en="App Store release is coming soon. We will publish the download link as soon as Apple approves version 1."
-              data-fr="La sortie App Store arrive bientôt. Le lien de téléchargement sera publié dès que la version 1 sera approuvée par Apple."
-            >
-              App Store release is coming soon. We will publish the download link as soon as Apple approves version 1.
-            </p>
           </div>
         </div>
 
@@ -116,9 +133,8 @@
       const langToggle = document.getElementById("langToggle");
       const i18nNodes = document.querySelectorAll("[data-en][data-fr]");
       const appPreview = document.getElementById("appPreview");
-      const downloadBtn = document.getElementById("downloadBtn");
-      const comingSoonInline = document.getElementById("comingSoonInline");
-
+      const badgeAppStore = document.getElementById("badgeAppStore");
+      const badgeGooglePlay = document.getElementById("badgeGooglePlay");
       function applyLang(lang) {
         const safeLang = lang === "fr" ? "fr" : "en";
         document.documentElement.lang = safeLang;
@@ -138,6 +154,26 @@
               ? "assets/vyron-app-preview-fr.webp"
               : "assets/vyron-app-preview.webp";
         }
+        if (badgeAppStore) {
+          badgeAppStore.src =
+            safeLang === "fr"
+              ? "assets/badge-app-store-fr.svg"
+              : "assets/badge-app-store-en.svg";
+          badgeAppStore.alt =
+            safeLang === "fr"
+              ? "Télécharger dans l'App Store"
+              : "Download on the App Store";
+        }
+        if (badgeGooglePlay) {
+          badgeGooglePlay.src =
+            safeLang === "fr"
+              ? "assets/badge-google-play-fr.svg"
+              : "assets/badge-google-play-en.svg";
+          badgeGooglePlay.alt =
+            safeLang === "fr"
+              ? "Disponible sur Google Play"
+              : "Get it on Google Play";
+        }
       }
 
       const initialLang = localStorage.getItem("vyron-lang") || "en";
@@ -148,17 +184,6 @@
           const nextLang = document.documentElement.lang === "en" ? "fr" : "en";
           localStorage.setItem("vyron-lang", nextLang);
           applyLang(nextLang);
-        });
-      }
-
-      if (downloadBtn) {
-        downloadBtn.addEventListener("click", () => {
-          if (!comingSoonInline) return;
-          comingSoonInline.hidden = false;
-          comingSoonInline.classList.remove("is-visible");
-          requestAnimationFrame(() => {
-            comingSoonInline.classList.add("is-visible");
-          });
         });
       }
     </script>
